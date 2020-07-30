@@ -16,19 +16,26 @@ class TicTacToe
   end
 
  def input_to_index(user_input)
-   #binding.pry
    user_input.to_i - 1
   end
   
-  def move(index, player_token = "X")
+  def move(index, player_token)
     @board[index] = player_token
   end
   
   def position_taken?(location)
-    if index.between?(0,8) 
-      true 
-    else 
-      false
-  end
+    #binding.pry
+    @board[location] == "X" || @board[location] == "O"
   end    
+  
+  def valid_move?(index)
+    index.between?(0,8) && !position_taken?(index)
+  end
+
+  def turn_count 
+    position_taken?(1,9)
+  
+  end
+
+
 end
