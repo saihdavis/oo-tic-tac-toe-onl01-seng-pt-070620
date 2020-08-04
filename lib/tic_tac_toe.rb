@@ -84,6 +84,6 @@ class TicTacToe
     turn
   end
     if won?
-      puts 
+      puts "Congratulations"
 
   end
