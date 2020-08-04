@@ -24,7 +24,6 @@ class TicTacToe
   end
   
   def position_taken?(location)
-   
     @board[location] == "X" || @board[location] == "O"
   end    
   
@@ -33,14 +32,50 @@ class TicTacToe
   end
 
   def turn 
-    binding.pry
+    #binding.pry
     puts "Please enter a number from 1-9:"
     input = gets.strip
     index = input_to_index(input)
     if valid_move?(index)
       move(index, current_player)
+      display_board
+    else 
+      turn 
     end
   end
+  
+  def turn_count
+    @board.count{|token| token == "X" || token == "O"}
+  end
+  
+  def current_player 
+    turn_count % 2 == 0?
+    "X" : "O"
+  end
+
+  def won? 
+    WIN_COMBINATIONS.detect{|winning_array|
+      @board[winning_array[0]] == @board[winning_array[1]] &&
+      @board[winning_array[1]] == @board[winning_array[2]]} #&&
+     # position_taken?(winning_array[0])}
+  end
+
+  def full?
+    @board.all?{|element| element == "X" || element == "O"}
+  end
+
+  def draw?
+    full? && !won?
+  end 
+  
+  def over?
+    won? || draw?
+  end
+  
+  def winner
+    
+  end  
+  
 
 
-end
+  end
