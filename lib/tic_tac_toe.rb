@@ -80,7 +80,7 @@ class TicTacToe
   end  
   end
   
-  while over?
+  while !over?
     turn
   end
     if won?
