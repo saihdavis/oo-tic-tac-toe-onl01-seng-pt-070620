@@ -79,6 +79,11 @@ class TicTacToe
        nil
   end  
   end
-
+  
+  while over?
+    turn
+  end
+    if won?
+      puts 
 
   end
