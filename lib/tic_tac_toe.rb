@@ -56,8 +56,8 @@ class TicTacToe
   def won? 
     WIN_COMBINATIONS.detect{|winning_array|
       @board[winning_array[0]] == @board[winning_array[1]] &&
-      @board[winning_array[1]] == @board[winning_array[2]]} #&&
-     # position_taken?(winning_array[0])}
+      @board[winning_array[1]] == @board[winning_array[2]] &&
+      position_taken?(winning_array[0])}
   end
 
   def full?
@@ -73,9 +73,12 @@ class TicTacToe
   end
   
   def winner
-    
+    if won?
+      @board[won?[0]]
+    else 
+       nil
   end  
-  
+  end
 
 
   end
