@@ -24,7 +24,7 @@ class TicTacToe
   end
   
   def position_taken?(location)
-    #binding.pry
+   
     @board[location] == "X" || @board[location] == "O"
   end    
   
@@ -32,9 +32,14 @@ class TicTacToe
     index.between?(0,8) && !position_taken?(index)
   end
 
-  def turn_count 
-    position_taken?(1,9)
-  
+  def turn 
+    binding.pry
+    puts "Please enter a number from 1-9:"
+    input = gets.strip
+    index = input_to_index(input)
+    if valid_move?(index)
+      move(index, current_player)
+    end
   end
 
 
